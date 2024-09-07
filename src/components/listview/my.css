@@ -1,0 +1,54 @@
+/* .ListCard h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.ListCard h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.ListCard h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.ListCard h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.ListCard h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.ListCard h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+.ListCard code {
+  font-size: 1.2em;
+} */
+
+.ListCard ul {
+  padding-inline-start: 20px;
+}
+
+.ListCard ul {
+  list-style-type: none;
+  padding: 0px 10px;
+}
+.ListCard li {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.ListCard img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

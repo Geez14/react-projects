@@ -89,3 +89,9 @@ go away.
 add this dependencies and run ```npm install```
 "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
 ````
+
+## UseEffect
+
+If you don't provide a dependency array to the useEffect hook, the effect will run after every render of the component. This can lead to performance issues and unintended behavior, especially if the effect involves expensive operations or causes state changes that trigger re-renders.
+
+This means that whenever <dependencies> changes, the useEffect hook will execute the function to set the new color based on the current type_of_color value.

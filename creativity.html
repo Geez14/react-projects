@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+    :root {
+      --background-color: red;
+      --primary-color: white;
+    }
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--primary-color);
+    }
+
+    .water_drop_button {
+      position: relative;
+      height: 50px;
+      width: 180px;
+      padding: 10px 10px;
+      border-radius: 30px;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      box-shadow:
+        5px 5px 32px rgb(30, 29, 29),
+        5px 5px 32px rgb(32, 32, 32) inset;
+      letter-spacing: 3px;
+      transition: 1s;
+      text-shadow: 2px 2px 5px rgb(50, 50, 50);
+      text-transform: uppercase;
+      /* Prevent text from wrapping */
+      white-space: nowrap;
+      /* Hide overflowing text */
+      overflow: hidden;
+      /* Display ellipsis for overflowing text */
+      text-overflow: ellipsis;
+    }
+
+    .water_drop_button::before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      width: 13px;
+      background-color: rgba(179, 179, 179, 0.718);
+      left: 10px;
+      top: 9px;
+      border-radius: 50%;
+      transform: rotate(-40deg);
+
+    }
+
+    .water_drop_button:hover {
+      transition-duration: 1s;
+      box-shadow:
+        1px 1px 32px rgb(29, 29, 29),
+        2px 2px 32px rgb(24, 24, 24) inset;
+
+      letter-spacing: normal;
+    }
+
+    .water_drop_button:active {
+      text-orientation: upright;
+      box-shadow:
+        1px 1px 32px rgba(141, 141, 141, 0.524),
+        2px 2px 32px rgba(97, 97, 97, 0.502) inset;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .puddle_drop_button {
+      -webkit-filter: drop-shadow(5px 5px 1px rgb(252, 252, 252));
+      filter: drop-shadow(5px 5px 20px rgb(133, 34, 34));
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <button draggable=true class="water_drop_button">Enable</button>
+    <div>
+      <svg class="puddle_drop_button" width="200" height="200">
+        <defs>
+          <filter id="strong-inner">
+            <feFlood flood-color="red" />
+
+            <!-- This next operation subtracts the original shape from the red color 
+field filling the filter region - which will give you a big color border 
+surrounding the original shape -->
+            <feComposite operator="out" in2="SourceGraphic" />
+
+            <!-- Next we want to expand the red border so it overlaps the space of the 
+original shape - the radius 4 below will expand it by 4 pixels -->
+
+            <feMorphology operator="dilate" radius="4" />
+            <feGaussianBlur stdDeviation="5" />
+
+            <!-- After blurring it, we want to select just the parts of the blurred, 
+expanded border that overlap the original shape - which we can do by using 
+the 'atop' operator -->
+
+            <feComposite operator="atop" in2="SourceGraphic" />
+          </filter>
+        </defs>
+
+        <path fill="rgba(255 255 255)"
+          d="M165.963 134.037c-5.467 5.467-14.332 5.467-19.799 0l-24.137-24.138c-5.468-5.467-5.468-14.331 0-19.799l24.137-24.137c5.467-5.467 14.332-5.467 19.799 0L190.101 90.1c5.467 5.468 5.467 14.332 0 19.799l-24.138 24.138Zm-112.127 0c-5.467 5.467-14.332 5.467-19.8 0L9.9 109.899c-5.468-5.467-5.468-14.331 0-19.799l24.137-24.137c5.467-5.467 14.332-5.467 19.799 0L77.973 90.1c5.468 5.468 5.468 14.332 0 19.799l-24.137 24.138ZM109.9 190.1c-5.468 5.468-14.332 5.468-19.8 0l-24.137-24.137c-5.467-5.467-5.467-14.332 0-19.799l24.138-24.137c5.467-5.468 14.331-5.468 19.799 0l24.137 24.137c5.467 5.467 5.467 14.332 0 19.799L109.9 190.1Zm0-112.127c-5.468 5.468-14.332 5.468-19.8 0L65.963 53.836c-5.467-5.468-5.467-14.332 0-19.8L90.101 9.9c5.467-5.467 14.331-5.467 19.799 0l24.137 24.138c5.467 5.467 5.467 14.331 0 19.799L109.9 77.973Z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</body>
+
+</html>
