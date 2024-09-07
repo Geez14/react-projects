@@ -84,7 +84,7 @@ function toHex(rgb) {
 function toRGB(hex) {
   hex = hex.slice(1);
   hex = PaddedHex(hex);
-  let [r, g, b] = hex.match(/[0-9A-F]{2}/gi);
+  let [r, g, b] = hex.match(hexPattern);
   console.log(hex, "-to->[", r, g, b, "]");
   return `rgb(${parseInt(r, 16)},${parseInt(g, 16)},${parseInt(b, 16)})`;
 }

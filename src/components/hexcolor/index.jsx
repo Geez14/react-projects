@@ -9,6 +9,7 @@ export default function RandomColorCard() {
 
   // this run when the dependencies have change in value
   useEffect(() => {
+    console.log("Executed!");
     set_color(genericConvertor(color, type_of_color));
   }, [type_of_color]);
 
