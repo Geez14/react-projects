@@ -48,6 +48,7 @@ export default function Accordian() {
         {data && data.length > 0 ? (
           data.map((item) => (
             <div
+              key={item.id}
               onClick={() =>
                 enable_multiselection
                   ? handleMultipleSelections(item.id)

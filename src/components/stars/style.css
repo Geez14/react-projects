@@ -1,0 +1,19 @@
+:root {
+  --star-size: 0px;
+}
+#Star {
+  display: inline-block;
+  width: var(--star-size);
+  height: var(--star-size);
+  margin: 10px;
+  background-color: rgb(219, 219, 58);
+  border-radius: 50%;
+}
+
+.active {
+  color: #dbdb1b;
+  filter:drop-shadow(10px 10px 10px yellow)
+}
+.inactive {
+  color: #222;
+}
