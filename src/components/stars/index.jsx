@@ -22,16 +22,18 @@ const StarsMetric = ({ noOfStars = 10 }) => {
         index++;
         return (
           <FaStar
-            className={index <= (hover || rating) ? "active" : "inactive"}
+            className={index <= (hover || rating) ? "icon active" : "icon inactive"}
             key={index}
-            onClick={()=>{onClick(index)}}
+            onClick={() => {
+              onClick(index);
+            }}
             onPointerEnter={() => {
               onPointerEnter(index);
             }}
             onPointerLeave={() => {
               onPointerLeave();
             }}
-            size={100}
+            size={30}
           />
         );
       })}

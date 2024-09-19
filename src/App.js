@@ -3,8 +3,8 @@ import "./App.css";
 import Accordian from "./components/accordian";
 import RandomColorCard from "./components/hexcolor";
 import List from "./components/listview";
-// import ClipboardExample from "./components/copy-on-click";
 import StartMetric from "./components/stars";
+import ImageCrusole from "./components/image-crusole";
 
 function App() {
   return (
@@ -15,11 +15,16 @@ function App() {
       {/* RandomColorCard component */}
       <RandomColorCard />
       <List />
-      {/* <ClipboardExample /> */}
       {/* aria-label is for narrator */}
       {/* <button aria-label="Close the modal">Close</button> */}
       {/* StartMetric */}
       <StartMetric />
+      {/* Image Crusole! */}
+      <ImageCrusole
+        url={"https://api.slingacademy.com/v1/sample-data/photos"}
+        offset={0}
+        limit={"10"}
+      />
     </div>
   );
 }
