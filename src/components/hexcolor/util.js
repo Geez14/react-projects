@@ -1,4 +1,4 @@
-const hexMap = [1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+const hexMap = [1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
 
 const rgbPattern = /\d+/g;
 const hexPattern = /[0-9a-fA-F]{2}/gi;
@@ -9,10 +9,39 @@ function colorUtility(length) {
  * @description Generate a random HEX color
  */
 export function generateHex() {
-  let hexColor = "#";
-  for (let index = 0; index < 6; index++) {
-    hexColor += hexMap[colorUtility(hexMap.length)];
-  }
+  // const r_human = 2;
+  // const g_human = 5;
+  // const b_human = 1;
+  // let hexColor = "#";
+  // // red
+  // hexColor += hexMap[colorUtility(8 + r_human)];
+  // hexColor += hexMap[colorUtility(8 + r_human)];
+  // // green
+  // hexColor += hexMap[colorUtility(8 + g_human)];
+  // hexColor += hexMap[colorUtility(8 + g_human)];
+  // // blue
+  // hexColor += hexMap[colorUtility(8 + b_human)];
+  // hexColor += hexMap[colorUtility(8 + b_human)];
+  // return hexColor;
+  // Generate random values for Red, Green, and Blue
+  let r = Math.floor(Math.random() * 256); // 0-255
+  let g = Math.floor(Math.random() * 256); // 0-255
+  let b = Math.floor(Math.random() * 256); // 0-255
+
+  // Apply human-eye sensitivity adjustments
+  const r_human = 0.299 * r;
+  const g_human = 0.587 * g;
+  const b_human = 0.114 * b;
+
+  // Combine adjusted values to get a "balanced" color
+  r = Math.floor(r_human);
+  g = Math.floor(g_human);
+  b = Math.floor(b_human);
+
+  // Convert each value to hex and pad if necessary
+  const hexColor = `#${r.toString(16).padStart(2, "0")}${g
+    .toString(16)
+    .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
   return hexColor;
 }
 
@@ -20,9 +49,9 @@ export function generateHex() {
  * @description Generate a random RGB color
  */
 export function generateRGB() {
-  let r = colorUtility(256);
-  let g = colorUtility(256);
-  let b = colorUtility(256);
+  let r = Math.floor(colorUtility(136) + 120 * 0.299);
+  let g = Math.floor(colorUtility(136) + 120 * 0.587);
+  let b = Math.floor(colorUtility(136) + 120 * 0.114);
   return `rgb(${r},${g},${b})`;
 }
 

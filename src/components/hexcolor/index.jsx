@@ -14,7 +14,7 @@ export default function RandomColorCard() {
   }, [type_of_color]);
 
   const card = (
-    <div style={{ width: "100vw", height: "100vh", backgroundColor: color }}>
+    <div style={{ width: "100dvw", height: "100dvh", backgroundColor: color }}>
       <MyButton onClick={() => set_type_of_color("hex")} name="Hex Mode" />
       <MyButton onClick={() => set_type_of_color("rgb")} name="RGB Mode" />
 
@@ -35,7 +35,7 @@ export default function RandomColorCard() {
           justifyContent: "center",
           alignItems: "center",
           color: "#fff",
-          fontSize: "60px",
+          fontSize: "20px",
           marginTop: "50px",
           textShadow: "0 0 2.5px black",
         }}
