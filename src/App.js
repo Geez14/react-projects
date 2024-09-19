@@ -6,6 +6,9 @@ import List from "./components/listview";
 import StartMetric from "./components/stars";
 import ImageCrusole from "./components/image-crusole";
 
+const offset = Math.floor(Math.random() * 120);
+const limit = 10;
+
 function App() {
   return (
     <div className="App">
@@ -22,8 +25,8 @@ function App() {
       {/* Image Crusole! */}
       <ImageCrusole
         url={"https://api.slingacademy.com/v1/sample-data/photos"}
-        offset={0}
-        limit={"10"}
+        offset={offset}
+        limit={limit}
       />
     </div>
   );
