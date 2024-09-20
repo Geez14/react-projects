@@ -99,47 +99,47 @@ function ProductCard({ className, thumbnail, title, price = "out of stock" }) {
   );
 }
 
-const FilterComponent = ({ onFilter }) => {
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [filteredData, setFilteredData] = useState([]);
+// const FilterComponent = ({ onFilter }) => {
+//   const [selectedCategory, setSelectedCategory] = useState("");
+//   const [filteredData, setFilteredData] = useState([]);
 
-  const fetchCategories = useCallback(() => {
-    fetch("https://dummyjson.com/products/category-list")
-      .then((res) => res.json())
-      .then((res) => {
-        setFilteredData(res);
-      });
-  }, []);
+//   const fetchCategories = useCallback(() => {
+//     fetch("https://dummyjson.com/products/category-list")
+//       .then((res) => res.json())
+//       .then((res) => {
+//         setFilteredData(res);
+//       });
+//   }, []);
 
-  useEffect(() => {
-    fetchCategories();
-  }, [fetchCategories]);
+//   useEffect(() => {
+//     fetchCategories();
+//   }, [fetchCategories]);
 
-  const handleCategoryChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedCategory(selectedValue);
-    //   // const filteredProducts = data.filter(
-    //   //   (product) => product.category === selectedValue || selectedValue === ""
-    //   // );
-    //   // setFilteredData(filteredProducts);
-    //   // if (onFilter) {
-    //   //   onFilter(filteredProducts);
-    //   // }
-  };
+//   const handleCategoryChange = (event) => {
+//     const selectedValue = event.target.value;
+//     setSelectedCategory(selectedValue);
+//     //   // const filteredProducts = data.filter(
+//     //   //   (product) => product.category === selectedValue || selectedValue === ""
+//     //   // );
+//     //   // setFilteredData(filteredProducts);
+//     //   // if (onFilter) {
+//     //   //   onFilter(filteredProducts);
+//     //   // }
+//   };
 
-  return (
-    <div className="filter-container">
-      <h2>Filter Products</h2>
-      <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">All Categories</option>
-        {filteredData.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-};
+//   return (
+//     <div className="filter-container">
+//       <h2>Filter Products</h2>
+//       <select value={selectedCategory} onChange={handleCategoryChange}>
+//         <option value="">All Categories</option>
+//         {filteredData.map((category) => (
+//           <option key={category} value={category}>
+//             {category}
+//           </option>
+//         ))}
+//       </select>
+//     </div>
+//   );
+// };
 
 export default DynamicLoad;
