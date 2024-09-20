@@ -9,15 +9,23 @@ export default function Dictionary({ item }) {
    * Root:false/true
    * Photos:false/true
    */
-  const [displayCurrentChild, setDisplayCurrentChild] = useState({});
+  const [displayCurrentChild, setDisplayCurrentChild] = useState(new Map());
 
   function toggle(name) {
-    setDisplayCurrentChild((prevState) => ({
-      ...prevState,
-      [name]: !prevState[name],
-    }));
+    setDisplayCurrentChild((prevState) => {
+      const updatedState = new Map(prevState);
+      if (updatedState.has(name)) {
+        updatedState.delete(name); // Remove state to free memory
+      } else {
+        updatedState.set(name, true); // Only store opened folders
+      }
+      return updatedState;
+    });
+    // setDisplayCurrentChild((prevState) => ({
+    //   ...prevState,
+    //   [name]: !prevState[name],
+    // }));
   }
-
   return (
     <li>
       <div className="menue-item">
@@ -27,7 +35,7 @@ export default function Dictionary({ item }) {
               toggle(item.name);
             }}
           >
-            {displayCurrentChild[item.name] ? (
+            {displayCurrentChild.get(item.name) ?? false ? (
               <FaFolderOpen className="folder" color="#fff" />
             ) : (
               <FaFolder className="folder" color="#fff" />
@@ -46,7 +54,7 @@ export default function Dictionary({ item }) {
       </div>
       {item.children &&
       item.children.length > 0 &&
-      displayCurrentChild[item.name] ? (
+      (displayCurrentChild.get(item.name) ?? false) ? (
         <ListUnpack items={item.children} />
       ) : null}
     </li>
