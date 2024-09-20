@@ -9,40 +9,41 @@ function colorUtility(length) {
  * @description Generate a random HEX color
  */
 export function generateHex() {
-  // const r_human = 2;
-  // const g_human = 5;
-  // const b_human = 1;
-  // let hexColor = "#";
-  // // red
-  // hexColor += hexMap[colorUtility(8 + r_human)];
-  // hexColor += hexMap[colorUtility(8 + r_human)];
-  // // green
-  // hexColor += hexMap[colorUtility(8 + g_human)];
-  // hexColor += hexMap[colorUtility(8 + g_human)];
-  // // blue
-  // hexColor += hexMap[colorUtility(8 + b_human)];
-  // hexColor += hexMap[colorUtility(8 + b_human)];
-  // return hexColor;
-  // Generate random values for Red, Green, and Blue
-  let r = Math.floor(Math.random() * 256); // 0-255
-  let g = Math.floor(Math.random() * 256); // 0-255
-  let b = Math.floor(Math.random() * 256); // 0-255
-
-  // Apply human-eye sensitivity adjustments
-  const r_human = 0.299 * r;
-  const g_human = 0.587 * g;
-  const b_human = 0.114 * b;
-
-  // Combine adjusted values to get a "balanced" color
-  r = Math.floor(r_human);
-  g = Math.floor(g_human);
-  b = Math.floor(b_human);
-
-  // Convert each value to hex and pad if necessary
-  const hexColor = `#${r.toString(16).padStart(2, "0")}${g
-    .toString(16)
-    .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  const r_human = 2;
+  const g_human = 5;
+  const b_human = 1;
+  let hexColor = "#";
+  // red
+  hexColor += hexMap[colorUtility(8 + r_human)];
+  hexColor += hexMap[colorUtility(8 + r_human)];
+  // green
+  hexColor += hexMap[colorUtility(8 + g_human)];
+  hexColor += hexMap[colorUtility(8 + g_human)];
+  // blue
+  hexColor += hexMap[colorUtility(8 + b_human)];
+  hexColor += hexMap[colorUtility(8 + b_human)];
   return hexColor;
+
+  // Generate random values for Red, Green, and Blue
+  // let r = Math.floor(Math.random() * 256); // 0-255
+  // let g = Math.floor(Math.random() * 256); // 0-255
+  // let b = Math.floor(Math.random() * 256); // 0-255
+
+  // // Apply human-eye sensitivity adjustments
+  // const r_human = 0.299 * r;
+  // const g_human = 0.587 * g;
+  // const b_human = 0.114 * b;
+
+  // // Combine adjusted values to get a "balanced" color
+  // r = Math.floor(r_human);
+  // g = Math.floor(g_human);
+  // b = Math.floor(b_human);
+
+  // // Convert each value to hex and pad if necessary
+  // const hexColor = `#${r.toString(16).padStart(2, "0")}${g
+  //   .toString(16)
+  //   .padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
+  // return hexColor;
 }
 
 /**
@@ -101,7 +102,6 @@ function PaddedHex(hex) {
 
 function toHex(rgb) {
   let [r, g, b] = rgb.match(rgbPattern);
-  console.log(rgb, "-to->[", r, g, b, "]");
   return (
     "#" +
     (parseInt(r).toString(16) +
@@ -114,6 +114,5 @@ function toRGB(hex) {
   hex = hex.slice(1);
   hex = PaddedHex(hex);
   let [r, g, b] = hex.match(hexPattern);
-  console.log(hex, "-to->[", r, g, b, "]");
   return `rgb(${parseInt(r, 16)},${parseInt(g, 16)},${parseInt(b, 16)})`;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import MyButton from "../button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { generateHex, generateRGB, genericConvertor } from "./util.js";
 
 export default function RandomColorCard() {
@@ -8,10 +8,14 @@ export default function RandomColorCard() {
   const [color, set_color] = useState("#000000");
 
   // this run when the dependencies have change in value
-  useEffect(() => {
-    console.log("Executed!");
+  
+  const effector = useCallback(() => {
     set_color(genericConvertor(color, type_of_color));
-  }, [type_of_color]);
+  }, [color, type_of_color]);
+  useEffect(() => {
+    effector();
+  }, [effector]);
+
 
   const card = (
     <div style={{ width: "100dvw", height: "100dvh", backgroundColor: color }}>
