@@ -8,14 +8,10 @@ export default function RandomColorCard() {
   const [color, set_color] = useState("#000000");
 
   // this run when the dependencies have change in value
-  
-  const effector = useCallback(() => {
-    set_color(genericConvertor(color, type_of_color));
-  }, [color, type_of_color]);
-  useEffect(() => {
-    effector();
-  }, [effector]);
 
+  useEffect(() => {
+    set_color((prev) => genericConvertor(prev, type_of_color));
+  }, [type_of_color]);
 
   const card = (
     <div style={{ width: "100dvw", height: "100dvh", backgroundColor: color }}>
