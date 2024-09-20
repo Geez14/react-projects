@@ -11,13 +11,11 @@ export default function Accordian() {
   const [message, set_message] = useState("Enable");
 
   function handleSingleSelecion(content) {
-    console.log("single selection", content);
     if (content !== selected) set_selected(content);
     else set_selected(null);
   }
 
   function handleMultipleSelections(content) {
-    console.log("multi selection!", content);
     let cpmultiple = [...selections];
     // check weather the element exist or not! -1 else indexofcontent
     const index = cpmultiple.indexOf(content);

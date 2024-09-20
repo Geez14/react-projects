@@ -1,0 +1,31 @@
+.tree-view-container {
+  height: 100dvh;
+  overflow-y: auto; /* Auto instead of scroll for better UX */
+  padding: 20px;
+  width: auto; /* Let the content determine width */
+  color: white;
+  background-color: #222;
+}
+
+.menu-list-container {
+  pointer-events: stroke;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menue-item {
+  /* background-color: red; */
+  display: flex;
+  font-size: 1.4rem;
+  margin: 20px;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+}
+
+.folder:hover {
+  filter: drop-shadow(0 0 10px rgb(127, 127, 127));
+}

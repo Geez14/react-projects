@@ -1,6 +1,6 @@
 import React from "react";
 import MyButton from "../button";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { generateHex, generateRGB, genericConvertor } from "./util.js";
 
 export default function RandomColorCard() {
@@ -8,13 +8,12 @@ export default function RandomColorCard() {
   const [color, set_color] = useState("#000000");
 
   // this run when the dependencies have change in value
-
   useEffect(() => {
     set_color((prev) => genericConvertor(prev, type_of_color));
   }, [type_of_color]);
 
   const card = (
-    <div style={{ width: "100dvw", height: "100dvh", backgroundColor: color }}>
+    <div style={{ width: "100%", height: "100dvh", backgroundColor: color }}>
       <MyButton onClick={() => set_type_of_color("hex")} name="Hex Mode" />
       <MyButton onClick={() => set_type_of_color("rgb")} name="RGB Mode" />
 

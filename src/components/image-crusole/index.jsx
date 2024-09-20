@@ -30,11 +30,11 @@ const ImageCrusole = ({ url, offset = 0, limit }) => {
   }, [url]);
 
   if (loading) {
-    return <div className="crusole">LOADING...</div>;
+    return <div className="carousel">LOADING...</div>;
   }
 
   if (errorMessage !== null) {
-    return <div className="crusole">MESSAGE CANNOT BE LOADED...</div>;
+    return <div className="carousel">MESSAGE CANNOT BE LOADED...</div>;
   }
 
   function previousImage() {
@@ -53,7 +53,8 @@ const ImageCrusole = ({ url, offset = 0, limit }) => {
   }
 
   return (
-    <div className="crusole">
+    <div className="carousel">
+      <h1> Image carousel</h1>
       <div className="card">
         <BsArrowLeftCircleFill
           className="arrow arrow-left"
@@ -86,10 +87,10 @@ const ImageCrusole = ({ url, offset = 0, limit }) => {
                   }}
                   key={index}
                   className={
-                    "crusole-button-global " +
+                    "carousel-button-global " +
                     (currentSlide === index
-                      ? "crusole-active-button"
-                      : "crusole-inactive-button")
+                      ? "carousel-active-button"
+                      : "carousel-inactive-button")
                   }
                 ></button>
               ))

@@ -1,3 +1,9 @@
+let data = {};
+data = {"root": !data["root"]};
+console.log(data);
+data = {"root": !data["root"]};
+console.log(data);
+
 // const data = [{ 1: 34, 2: 45 }, { 4: 34 }, { 398324: 498749387598347 }];
 // data.map((item, index) => {
 //   console.log(item, index);

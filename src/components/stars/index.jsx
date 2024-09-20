@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import "./style.css";
 
@@ -22,7 +22,9 @@ const StarsMetric = ({ noOfStars = 10 }) => {
         index++;
         return (
           <FaStar
-            className={index <= (hover || rating) ? "icon active" : "icon inactive"}
+            className={
+              index <= (hover || rating) ? "icon active" : "icon inactive"
+            }
             key={index}
             onClick={() => {
               onClick(index);
